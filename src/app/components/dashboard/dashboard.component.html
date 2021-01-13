@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-body">
+        <div *ngIf="user">
+            <h1 class="mt-4 text-center"><b> Login User Details :- </b></h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile Number</th>
+                        <th scope="col">Creation Time</th>
+                        <th scope="col">Last Login Time</th>
+                        <th scope="col">E-mail Verified</th>
+                        <th scope="col">Crud Operation</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">01. </th>
+                        <th>{{ user?.displayName }} </th>
+                        <td>{{ user?.email }} </td>
+                        <td>{{user?.photoURL}}</td>
+                        <td>{{ user?.metadata.creationTime | date: 'dd/MM/yyyy HH:mm' }}</td>
+                        <td>{{ user?.metadata.lastSignInTime | date: 'dd/MM/yyyy HH:mm' }}</td>
+                        <td>{{ user?.emailVerified }}</td>
+                        <td><button class="btn btn-primary" *ngIf="user" (click)="country()">Country Crud</button></td>
+                        <td><button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div *ngIf="!user">
+            <h1 class="mt-4 text-center" *ngIf="!user"><b> Home Page :-  </b></h1>
+            <tr>
+                <th scope="col"><button class="btn btn-primary mr-2" (click)="register()">Register</button></th>
+                <th scope="col"><button class="btn btn-primary" (click)="login()">Login</button></th>
+                <th scope="col"><button class="btn btn-primary" (click)="forgot()">Forgot Password</button></th>
+                
+            </tr>   
+        </div>
+    </div>
+</div>

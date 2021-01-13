@@ -84,6 +84,11 @@ export class CountryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const name = sessionStorage.getItem('name')
+    const email = sessionStorage.getItem('email')
+    const pic = sessionStorage.getItem('picture')
+
+    console.log(name, email, pic)
   }
 
 }
